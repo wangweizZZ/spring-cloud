@@ -1,0 +1,24 @@
+server:
+  port: 8881
+
+spring:
+  cloud:
+    consul:
+      host: 192.168.25.129
+      port: 8500
+      enabled: true
+      config:
+        enabled: true
+        name: testapp
+        format: properties
+        data-key: data
+      discovery:
+        healthCheckPath: /
+        healthCheckInterval: 15s
+        instance-id: ${spring.cloud.consul.discovery.service-name}:${spring.cloud.client.hostname}:${server.port}
+        service-name: myapp
+        deregister: true
+
+
+
+

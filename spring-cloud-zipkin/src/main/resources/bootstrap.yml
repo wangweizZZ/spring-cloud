@@ -1,0 +1,19 @@
+server:
+  port: 8880
+spring:
+  application:
+    name: spring-cloud-zipkin
+  cloud:
+    consul:
+      host: 192.168.25.128
+      port: 8500
+      discovery:
+        register: true
+        enabled : true
+      enabled: true
+
+
+
+
+
+

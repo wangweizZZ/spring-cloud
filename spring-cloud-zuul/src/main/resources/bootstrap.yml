@@ -1,0 +1,25 @@
+server:
+  port: 8882
+
+spring:
+  application:
+    name: spring-cloud-zuul
+  cloud:
+    consul:
+      host: 192.168.25.128
+      port: 8500
+      discovery:
+        register: true
+        enabled : true
+      enabled: true
+zuul:
+  ignored-services: '*'
+  routes:
+    myapp:
+      path: /myapp/**
+      serviceId: myapp
+
+
+
+
+

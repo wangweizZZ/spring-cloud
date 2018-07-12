@@ -1,0 +1,27 @@
+apply plugin: 'org.springframework.boot'
+buildscript {
+
+    jar {
+        baseName = project.name
+        version = project.version
+        manifest {
+            attributes "Manifest-Version": 1.0, 'Main-Class': 'com.gagharv.springcloud.zuul.Application'
+        }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:$springVersion")
+    }
+}
+
+
+
+dependencies {
+    compile(
+            "org.springframework.cloud:spring-cloud-starter-netflix-zuul",
+            "org.springframework.cloud:spring-cloud-starter-consul-discovery",
+            "org.springframework.cloud:spring-cloud-starter-consul-config",
+            "org.springframework.cloud:spring-cloud-starter-zipkin",
+            "org.springframework.boot:spring-boot-starter-web"
+    )
+
+}
