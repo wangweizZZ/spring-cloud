@@ -1,0 +1,26 @@
+server:
+  port: 8880
+spring:
+  application:
+    name: zipkin-server
+zipkin:
+  collector:
+     kafka:
+        bootstrap-servers: 192.168.25.128:9092
+        topic: zipkin
+        groupId: zipkin
+  storage:
+     type: mysql
+     mysql:
+         username: root
+         password: 123456
+         db: zipkin
+         host: 192.168.25.128
+         port: 3306
+
+management:
+  metrics:
+    web:
+      server:
+        auto-time-requests: false
+

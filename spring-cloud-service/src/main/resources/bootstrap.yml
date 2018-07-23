@@ -1,24 +1,32 @@
 server:
   port: 8881
-
+  servlet:
+    context-path: /
 spring:
   cloud:
     consul:
-      host: 192.168.25.129
+      host: 192.168.25.128
       port: 8500
       enabled: true
       config:
         enabled: true
-        name: testapp
-        format: properties
-        data-key: data
+        name: zuul
+        data-key: dev
+#        acl-token: f6a6386a-edf8-bd99-95f8-8a7458a8a806
+        format: yaml
       discovery:
-        healthCheckPath: /
-        healthCheckInterval: 15s
         instance-id: ${spring.cloud.consul.discovery.service-name}:${spring.cloud.client.hostname}:${server.port}
-        service-name: myapp
+        service-name: wwapp
         deregister: true
-
-
-
-
+#        acl-token: f6a6386a-edf8-bd99-95f8-8a7458a8a806
+  zipkin:
+    service:
+      name: myapp2
+    sender:
+      type: kafka
+    message-timeout: 1
+  kafka:
+    bootstrap-servers: 192.168.25.128:9092
+  sleuth:
+    sampler:
+      probability: 1

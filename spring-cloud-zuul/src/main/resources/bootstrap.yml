@@ -13,13 +13,10 @@ spring:
         enabled : true
       enabled: true
 zuul:
-  ignored-services: '*'
-  routes:
-    myapp:
-      path: /myapp/**
-      serviceId: myapp
-
-
-
-
-
+  ignored-services:
+    -   'consul*'
+    -   'spring-cloud*'
+#  routes:
+#    myapp:
+#      path: /myapp/**
+#      serviceId: myapp
