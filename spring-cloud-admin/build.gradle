@@ -6,7 +6,7 @@ buildscript {
         baseName = project.name
         version = project.version
         manifest {
-            attributes "Manifest-Version": 1.0, 'Main-Class': 'com.gagharv.springcloud.service.Application'
+            attributes "Manifest-Version": 1.0, 'Main-Class': 'com.gagharv.springcloud.Application'
         }
     }
     dependencies {
@@ -17,12 +17,12 @@ buildscript {
 
 dependencies {
     compile(
-            "org.springframework.cloud:spring-cloud-starter-consul-discovery",
-            "org.springframework.cloud:spring-cloud-starter-consul-config",
+            "de.codecentric:spring-boot-admin-starter-server:2.0.1",
             "org.springframework.boot:spring-boot-starter-web",
+            "org.springframework.cloud:spring-cloud-starter-consul-discovery",
             "org.springframework.boot:spring-boot-starter-actuator",
-            "org.springframework.cloud:spring-cloud-starter-zipkin",
-            "org.springframework.kafka:spring-kafka"
+            "org.springframework.boot:spring-boot-starter-security",
+
     )
 
 }

@@ -1,7 +1,5 @@
 server:
   port: 8881
-  servlet:
-    context-path: /
 spring:
   cloud:
     consul:

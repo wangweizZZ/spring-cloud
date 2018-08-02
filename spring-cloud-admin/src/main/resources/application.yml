@@ -1,0 +1,32 @@
+server:
+  port: 8503
+
+spring:
+  application:
+    name: spring-cloud-admin
+  security:
+    user:
+      name: root
+      password: 123456
+  cloud:
+    consul:
+       host: 192.168.25.128
+       port: 8500
+    discovery:
+       register: true
+       enabled : true
+       service-name: spring-cloud-admin
+       instance-id: ${spring.cloud.consul.discovery.service-name}:${spring.cloud.client.hostname}:${server.port}
+    enabled: true
+  boot:
+    admin:
+      discovery:
+         ignored-services: consul
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+

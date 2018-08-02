@@ -11,12 +11,33 @@ spring:
       discovery:
         register: true
         enabled : true
+        service-name: zuul
+        instance-id: ${spring.cloud.consul.discovery.service-name}:${spring.cloud.consul.discovery.ip-address}:${server.port}
+        ip-address: 1.1.1.1
+        prefer-ip-address: true
       enabled: true
+
 zuul:
   ignored-services:
     -   'consul*'
     -   'spring-cloud*'
+
 #  routes:
 #    myapp:
 #      path: /myapp/**
 #      serviceId: myapp
+  host:
+    connect-timeout-millis: 12000
+    socket-timeout-millis: 12000
+    max-per-route-connections: 100
+    max-total-connections: 1000
+
+ribbon:
+  ReadTimeout: 10000
+  SocketTimeout: 10000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
