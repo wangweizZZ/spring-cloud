@@ -12,12 +12,14 @@ spring:
     consul:
        host: 192.168.25.128
        port: 8500
-    discovery:
-       register: true
-       enabled : true
-       service-name: spring-cloud-admin
-       instance-id: ${spring.cloud.consul.discovery.service-name}:${spring.cloud.client.hostname}:${server.port}
-    enabled: true
+       discovery:
+          register: true
+          enabled : true
+          service-name: spring-cloud-admin
+          instance-id: ${spring.cloud.consul.discovery.service-name}:${spring.cloud.client.hostname}:${server.port}
+#          tags:
+#              -  management.context-path=${server.servlet.context-path}/actuator
+      enabled: true
   boot:
     admin:
       discovery:
