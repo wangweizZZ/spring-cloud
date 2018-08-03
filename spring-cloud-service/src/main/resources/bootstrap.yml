@@ -13,9 +13,11 @@ spring:
 #        acl-token: f6a6386a-edf8-bd99-95f8-8a7458a8a806
         format: yaml
       discovery:
-        instance-id: ${spring.cloud.consul.discovery.service-name}:${spring.cloud.client.hostname}:${server.port}
         service-name: wwapp
         deregister: true
+        instance-id: ${spring.cloud.consul.discovery.service-name}:${spring.cloud.consul.discovery.ip-address}:${server.port}
+        ip-address: 1.1.1.1
+        prefer-ip-address: true
 #        acl-token: f6a6386a-edf8-bd99-95f8-8a7458a8a806
   zipkin:
     service:
@@ -27,4 +29,4 @@ spring:
     bootstrap-servers: 192.168.25.128:9092
   sleuth:
     sampler:
-      probability: 1
+      probability: 0.1

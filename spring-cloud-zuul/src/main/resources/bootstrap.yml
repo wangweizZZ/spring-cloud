@@ -16,21 +16,32 @@ spring:
         ip-address: 1.1.1.1
         prefer-ip-address: true
       enabled: true
-
+  zipkin:
+    enabled: true
+    base-url: http://localhost:8502
+    service:
+      name: zuul
+    sender:
+     type: web
+  sleuth:
+    sampler:
+      probability: 1
+  sleuth:
+    sampler:
+      probability: 0.1
 zuul:
   ignored-services:
     -   'consul*'
     -   'spring-cloud*'
-
-#  routes:
-#    myapp:
-#      path: /myapp/**
-#      serviceId: myapp
   host:
     connect-timeout-millis: 12000
     socket-timeout-millis: 12000
     max-per-route-connections: 100
     max-total-connections: 1000
+#  routes:
+#    myapp:
+#      path: /myapp/**
+#      serviceId: myapp
 
 ribbon:
   ReadTimeout: 10000

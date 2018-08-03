@@ -1,14 +1,20 @@
 server:
-  port: 8880
+  port: 8502
 spring:
   application:
-    name: zipkin-server
+    name: spring-cloud-zipkin
+  cloud:
+    consul:
+       host: 192.168.25.128
+       port: 8500
+    discovery:
+       register: true
+       enabled : true
+       service-name: spring-cloud-zipkin
+       instance-id: ${spring.cloud.consul.discovery.service-name}:${spring.cloud.client.hostname}:${server.port}
+    enabled: true
+
 zipkin:
-  collector:
-     kafka:
-        bootstrap-servers: 192.168.25.128:9092
-        topic: zipkin
-        groupId: zipkin
   storage:
      type: mysql
      mysql:
@@ -23,4 +29,10 @@ management:
     web:
       server:
         auto-time-requests: false
+  endpoints:
+      web:
+        exposure:
+          include: "*"
+
+
 
