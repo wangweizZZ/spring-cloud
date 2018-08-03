@@ -2,6 +2,7 @@ package com.gagharv.springcloud.zipkin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import zipkin.server.internal.EnableZipkinServer;
 
 /**
@@ -10,6 +11,7 @@ import zipkin.server.internal.EnableZipkinServer;
 @SpringBootApplication
 @EnableZipkinServer
 public class Application {
+
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
