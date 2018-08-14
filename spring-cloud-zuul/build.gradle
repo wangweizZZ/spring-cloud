@@ -21,5 +21,4 @@ dependencies {
             "org.springframework.cloud:spring-cloud-starter-zipkin",
             "org.springframework.boot:spring-boot-starter-web"
     )
-
 }

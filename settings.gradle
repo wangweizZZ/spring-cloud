@@ -4,4 +4,5 @@ include 'spring-cloud-client'
 include 'spring-cloud-zuul'
 include 'spring-cloud-zipkin'
 include 'spring-cloud-admin'
+include 'spring-cloud-hystrix-turbine'
 

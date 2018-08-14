@@ -1,0 +1,35 @@
+server:
+  port: 8511
+
+spring:
+  application:
+    name: spring-cloud-hystrix
+  cloud:
+    consul:
+      host: 10.6.62.173
+      port: 8500
+      discovery:
+        register: true
+        enabled : true
+        service-name: ${spring.application.name}
+        instance-id: ${spring.cloud.consul.discovery.service-name}:${spring.cloud.consul.discovery.ip-address}:${server.port}
+        ip-address: 192.168.83.10
+        prefer-ip-address: true
+        deregister: true
+      enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
+turbine:
+  aggregator:
+    cluster-config: default
+  app-config: spring-cloud-zuul
+  cluster-name-expression: new String("default")
+
+
+
