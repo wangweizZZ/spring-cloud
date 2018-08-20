@@ -1,10 +1,6 @@
 # spring-cloud-consul-demo
-consul
-
-zuul
-
-zipkin
-
-hystrix
-
-admin
+> consul
+> zuul
+> zipkin
+> hystrix
+> admin
